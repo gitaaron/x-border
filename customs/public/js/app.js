@@ -18,9 +18,10 @@ $(function(){
             if(data.shipment_request) {
                 console.log('shipment_request');
                 console.log(data.shipment_request);
-                var from = data.shipment_request.trucker.dlat+','+data.shipment_request.trucker.dlon;
-                console.log('from : ' +from);
-                requestShipment(from);
+                var t= data.shipment_request.trucker;
+                var from = t.dlat + ',' + t.dlon;
+                console.log('from : ' + from);
+                requestShipment(from, data.shipment_request);
             }
 	});
 	
@@ -35,4 +36,5 @@ $(function(){
 		}
 
         }
+
 });

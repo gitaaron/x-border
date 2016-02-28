@@ -1,3 +1,5 @@
+var request = require('request');
+
 /*************************************
 //
 // customs app
@@ -50,6 +52,24 @@ app.get("/map", function(req, res){
 app.post('/shipment_request', function(req, res) {
     console.log(req.body);
     io.sockets.emit('blast', {shipment_request:req.body});
+    res.end('ok');
+});
+
+app.post('/sms', function(req, res) {
+    console.log(req.body);
+    var options = {
+            uri:'http://server.setlurs.com:8080/sendsms',
+            //uri:'http://localhost:8081/sendsms',
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:req.body,
+            json:true
+
+        }
+
+    //request(options);
     res.end('ok');
 });
 

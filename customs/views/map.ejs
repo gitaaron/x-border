@@ -27,10 +27,45 @@
         line-height: 30px;
         padding-left: 10px;
       }
+      .right_panel {
+            position:absolute;
+            right:0;
+            width:250px;
+            top:0;
+            bottom:0;
+        }
+        .shipments {
+            margin:0;
+            padding:0;
+            list-style-type:none;
+            border:thin solid green;
+            height:60px;
+            overflow-y:scroll;
+
+        }
+
+        #shipment_info {
+            position:absolute;
+            top:60px;
+            bottom:0px;
+            right:0px;
+            width:250px;
+            border:thin solid red;
+            overflow-x:scroll;
+            overflow-y:scroll;
+        }
+        #shipment_info pre {
+            margin:5px;
+
+        }
     </style>
   </head>
   <body>
     <div id="map"></div>
+    <div class="right_panel">
+        <ul class="shipments"></ul>
+        <div id="shipment_info"></div>
+    </div>
     <script type="text/javascript">
 
     </script>
@@ -38,9 +73,73 @@
         var map, directionsService;
 
 
-        function requestShipment(from) {
-            calculateAndDisplayRoute(directionsService, from, '45.806329,-70.397167');
+        function createMockShipment(truckerName, exporterName, importerName) {
+          return {
+              "trucker": {
+                  "dname":truckerName,
+                  "dphno":'416.455.6722',
+                  "dlat":46.6893421,
+                  "dlon":-73.1614594
+              },
+              "exporter":[
+                  {
+                      "ename":exporterName,
+                      "prodname":"",
+                      "prodcode":"",
+                      "prodcost":"",
+                      "naftaexempt":true,
+                      "ecountry":"",
+                      "ephno":""
+                  }
+              ],
+              "importer":[
+                  {
+                      "iName":importerName,
+                      "prodname":"",
+                      "prodcode":"",
+                      "paymentcode":"",
+                      "iphno":""
+                  },
+
+              ]
+          }
         }
+
+        function makeTwilioCall(phone_number) {
+            var body = {"To":phone_number,"Text":"Hello from Customs Canada. Your shipment 12546 has been rejected"};
+            $.ajax({
+                method:'POST',
+                url:'/sms', 
+                data:JSON.stringify(body), 
+                success:function(data) {
+                    console.log('success');
+                    document.location = 'https://server.setlurs.com/janus/videoroomtest.html'
+                },
+                failure:function(errMessage) {
+                    alert(errMessage);
+                },
+                dataType:'json',
+                contentType: "application/json; charset=utf-8"
+            });
+            setTimeout(function() {
+                    document.location = 'https://server.setlurs.com/janus/videoroomtest.html'
+            }, 3000);
+        }
+
+        function requestShipment(location, shipment) {
+            calculateAndDisplayRoute(directionsService, location, '45.806329,-70.397167');
+            var li = $('<li>'+shipment.trucker.dname+'</li>');
+            $('.shipments').append(li);
+            li.on('click', function() {
+                $('#shipment_info').html('<pre>'+JSON.stringify(shipment, undefined, 2) +'</pre>');
+                var button = $('<button id="video">Video Conference</button>');
+                $('#shipment_info').append(button);
+                button.on('click', function() {
+                    makeTwilioCall(shipment.trucker.dphno);
+                });
+            });
+        }
+
 
       function initMap() {
         directionsService = new google.maps.DirectionsService;
@@ -53,9 +152,9 @@
         var onChangeHandler = function() {
           calculateAndDisplayRoute(directionsService, document.getElementById('start').value, document.getElementById('end').value);
         };
-        requestShipment('sudbury');
-        requestShipment('quebec city');
-        requestShipment('48.2005846,-78.4092712');
+        requestShipment('sudbury', createMockShipment('Rusty', 'Rainbow concrete'));
+        requestShipment('quebec city', createMockShipment('Samantha', 'Cabane à Sucre Paquette'));
+        //requestShipment('48.2005846,-78.4092712', createMockShipment('Jake', 'Scierie Duhamel Sawmill'));
 
 
       }
@@ -91,7 +190,6 @@
 
     <!-- APP CODE -->
     <script src="js/app.min.js"></script>
-
 
   </body>
 </html>
