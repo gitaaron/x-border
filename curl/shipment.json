@@ -1,0 +1,44 @@
+{
+    "trucker": {
+        "dname":"abc trucking",
+        "dphno":123456789,
+        "dlat":46.6893421,
+        "dlon":-73.1614594
+    },
+    "exporter":[
+        {
+            "ename":"",
+            "prodname":"",
+            "prodcode":"",
+            "prodcost":"",
+            "naftaexempt":true,
+            "ecountry":"",
+            "ephno":""
+        },
+       {
+            "ename":"",
+            "prodname":"",
+            "prodcode":"",
+            "prodcost":"",
+            "naftaexempt":true,
+            "ecountry":"",
+            "ephno":""
+        }
+    ],
+    "importer":[
+        {
+            "iName":"",
+            "prodname":"",
+            "prodcode":"",
+            "paymentcode":"",
+            "iphno":""
+        },
+        {
+            "iName":"",
+            "prodname":"",
+            "prodcode":"",
+            "paymentcode":"",
+            "iphno":""
+        }
+    ]
+}
