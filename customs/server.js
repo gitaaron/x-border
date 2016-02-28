@@ -69,7 +69,7 @@ app.post('/sms', function(req, res) {
 
         }
 
-    //request(options);
+    request(options);
     res.end('ok');
 });
 
