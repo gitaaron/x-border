@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="matrixtrucking" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="matrixtrucking" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="matrixtrucking" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="matrixtrucking" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Matrix Trucking</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="resources/app.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" ng-init="isCollapsed=true"
+              ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ui-sref="tennisPage">Matrix Trucking</a>
+    </div>
+    <div class="collapse navbar-collapse" uib-collapse="isCollapsed">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ui-sref="aboutusPage"><i class="fa fa-bullhorn fa-lg"></i> About Us</a></li>
+        <li><a ui-sref="contactUs"><i class="fa fa-whatsapp fa-lg"></i> Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="col-xs-12">
+    <div ui-view></div>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container">
+    <p class="footer-block">Copyright &copy;2016 Matrix Trucking</p>
+  </div>
+</nav>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_com"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
+<script src="app.js"></script>
+<script src="features/truckingdetails/trucking.js"></script>
+<script src="features/truckingdetails/trucking.controller.js"></script>
+<script src="components/services/trucking-service.module.js"></script>
+<script src="components/services/truck-services/trucking-service.js"></script>
+<script src="components/version/version.js"></script>
+<script src="components/version/version-directive.js"></script>
+<script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>

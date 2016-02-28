@@ -1,0 +1,291 @@
+<div class="row">
+    <div class="col-sm-4">
+        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary">Clear</button>
+    </div>
+    <div class="col-sm-offset-4 col-sm-4">
+        <button type="button" class="btn btn-primary">Autofill</button>
+    </div>
+</div>
+
+<br/><br/>
+<form class="form-horizontal" role="form">
+    <button type="button" class="btn btn-default" ng-click="truckingDetailVm.isTruckCollapsed = !truckingDetailVm.isTruckCollapsed">Trucker Information</button>
+    <hr>
+    <div uib-collapse="truckingDetailVm.isTruckCollapsed">
+        <div class="well well-lg">
+            <fieldset>
+                <legend>Trucker Information</legend>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label for="dname">Driver Name</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="dname" placeholder="Enter Your Name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label for="dphno">Driver Phone Number</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="dphno" placeholder="Enter Your Name">
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-default" ng-click="truckingDetailVm.isExporter1Collapsed = !truckingDetailVm.isExporter1Collapsed">Exporter 1
+        Information
+    </button>
+    <hr>
+    <div uib-collapse="truckingDetailVm.isExporter1Collapsed">
+        <div class="well well-lg">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="ename">Exporter Name</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="ename" placeholder="Enter Your Name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="pname">Product Name</label>
+                </div>
+                <div class="col-sm-6">
+                    <select id="pname" style="width: 100%;">
+                        <option ng-repeat="pname in truckingDetailVm.productname track by $index" value="{{pname}}">{{pname}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="pcode">Product Code</label>
+                </div>
+                <div class="col-sm-6">
+                    <select id="pname" style="width: 100%;">
+                        <option ng-repeat="pcode in truckingDetailVm.productcode track by $index" value="{{pcode}}">{{pcode}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="pcost">Product Cost</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="pcost" placeholder="Enter Product Cost">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="pcode">Nafta-Exempt</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="radio" name="true" value="true" checked>True
+                    <input type="radio" name="false" value="false"> False
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="ecountry">Country</label>
+                </div>
+                <div class="col-sm-6">
+                    <select id="ecounty" style="width: 100%;">
+                        <option ng-repeat="ecountry in truckingDetailVm.country track by $index" value="{{ecountry}}">{{ecountry}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="dphno">Exporter Phone Number</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="ephno" placeholder="Enter Your Phone Number">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <button type="button" class="btn btn-default" ng-click="truckingDetailVm.isExporter2Collapsed = !truckingDetailVm.isExporter2Collapsed">Exporter 2
+        Information
+    </button>
+    <hr>
+    <div uib-collapse="truckingDetailVm.isExporter2Collapsed">
+        <div class="well well-lg">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="ename">Exporter Name</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="ename" placeholder="Enter Your Name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="pname">Product Name</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="pname" placeholder="Enter Product Name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="pcode">Product Code</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="pcode(hts code)" placeholder="Enter Product Code">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="pcost">Product Cost</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="pcost" placeholder="Enter Product Cost">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="pcode">Nafta-Exempt</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="radio" name="true" value="true" checked>True
+                    <input type="radio" name="false" value="false"> False
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="ecountry">Country</label>
+                </div>
+                <div class="col-sm-6">
+                    <select class="form-control" id="sel1">
+                        <option>Select</option>
+                        <option>US</option>
+                        <option>CANADA</option>
+                        <option>4</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="dphno">Exporter Phone Number</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="ephno" placeholder="Enter Your Phone Number">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <button type="button" class="btn btn-default" ng-click="truckingDetailVm.isImporter1Collapsed = !truckingDetailVm.isImporter1Collapsed">Importer 1
+        Information
+    </button>
+    <hr>
+    <div uib-collapse="truckingDetailVm.isImporter1Collapsed">
+        <div class="well well-lg">
+            <div id="demo">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label for="ename">Importer Name</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="ename" placeholder="Enter Your Name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label for="pname">Product Name</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="pname" placeholder="Enter Product Name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label for="pcode">Product Code</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="pcode" placeholder="Enter Product Code">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label for="pcode">Payment Code</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="paycode" placeholder="Enter Product Code">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label for="iphno">Importer Phone Number</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input id="iphno" type="text" class="form-control" ng-maxlength="10" ng-minlength="10"
+                               ng-pattern="/^\d{10}$/" ng-required="true"
+                               ng-model="contactUsVm.user.phone" placeholder="Enter Your Phone Number"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-default" ng-click="truckingDetailVm.isImporter2Collapsed = !truckingDetailVm.isImporter2Collapsed">Importer 2
+        Information
+    </button>
+    <hr>
+    <div uib-collapse="truckingDetailVm.isImporter2Collapsed">
+        <div class="well well-lg">
+            <div id="demo">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label for="ename">Importer Name</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="ename" placeholder="Enter Your Name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label for="pname">Product Name</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="pname" placeholder="Enter Product Name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label for="pcode">Product Code</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="pcode" placeholder="Enter Product Code">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label for="pcode">Payment Code</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="paycode" placeholder="Enter Product Code">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label for="iphno">Importer Phone Number</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input id="iphno" type="text" class="form-control" ng-maxlength="10" ng-minlength="10"
+                               ng-pattern="/^\d{10}$/" ng-required="true"
+                               ng-model="contactUsVm.user.phone" placeholder="Enter Your Phone Number"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<br/><br/><br/>
