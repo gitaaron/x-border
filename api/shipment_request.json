@@ -1,0 +1,32 @@
+POST /shipment_request
+{
+    "driver":{
+        "name":"[driver name]",
+        "phone_number":"[phone number]",
+        "location":"[some fake location of trucker.. could be just string 'Toronto' or 'Chicago' or lat/long '43.7159482,-79.6391535']"
+    },
+    "shipments": [
+        "product":{
+            "name":"[product name]",
+            "code":"[product code]",
+            "cost":"[product cost]",
+            "nafta-exempt":"[yes or no]"
+            "payment_code":"[payment code]"
+        }
+        "exporter":[
+            {
+                "name":"[exporter name]",
+                "country":"[country]",
+                "exporter_phone_number":"[exporter phone number]"
+            }
+        ],
+        "importer":[
+            {
+                "name":"[importer name]",
+                "nafta-exempt":"[yes or no]",
+                "importer_phone_number":"[importer phone number]"
+            }
+        ]
+    ]
+}
+
